@@ -1,0 +1,25 @@
+label {
+  display: block;
+}
+
+span {
+  display: inline-block;
+  width: 150px;
+}
+
+select {
+  width: 190px;
+}
+
+.span {
+  &-invalid {
+    color: red;
+  }
+  &-valid {
+    color: green;
+  }
+}
+
+input {
+  margin-right: 1rem;
+}

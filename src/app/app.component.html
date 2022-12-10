@@ -1,0 +1,21 @@
+<h1>{{title}}</h1>
+
+<main>
+  <ng-container *ngIf="this.estado.form == 'listado'">
+    <header>
+
+      <app-filtrar-vehiculos [(select)]="this.select"></app-filtrar-vehiculos>
+
+      <app-velocidad-maxima-promedio [select]="this.select" [(promedioObj)]="promedioObj">
+      </app-velocidad-maxima-promedio>
+
+    </header>
+
+    <app-vehiculos [(vehiculos)]="this.vehiculos" [select]="this.select" [(promedioObj)]="this.promedioObj"
+      [(estado)]="this.estado"></app-vehiculos>
+    <button class="btn btn-primary w-100" (click)="agregar()">Agregar</button>
+
+  </ng-container>
+
+  <app-detalles-vehiculo *ngIf="this.estado.form == 'abm'" [(estado)]="this.estado"></app-detalles-vehiculo>
+</main>

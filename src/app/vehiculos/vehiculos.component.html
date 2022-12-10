@@ -1,0 +1,89 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>
+        <label class="table__label" for="id">id</label>
+        <input class="table__checkbox" type="checkbox" name="id" id="id" [(ngModel)]="id">
+      </th>
+      <th>
+        <label class="table__label" for="modelo">modelo</label>
+        <input class="table__checkbox" type="checkbox" name="modelo" id="modelo" [(ngModel)]="modelo">
+      </th>
+      <th>
+        <label class="table__label" for="anoFabricacion">anoFabricacion</label>
+        <input class="table__checkbox" type="checkbox" name="anoFabricacion" id="anoFabricacion"
+          [(ngModel)]="anoFabricacion">
+      </th>
+      <th>
+        <label class="table__label" for="velocidadMaxima">velocidadMaxima</label>
+        <input class="table__checkbox" type="checkbox" name="velocidadMaxima" id="velocidadMaxima"
+          [(ngModel)]="velocidadMaxima">
+      </th>
+      <th>
+        <label class="table__label" for="alturaMaxima">alturaMaxima</label>
+        <input class="table__checkbox" type="checkbox" name="alturaMaxima" id="alturaMaxima" [(ngModel)]="alturaMaxima">
+      </th>
+      <th>
+        <label class="table__label" for="autonomia">autonomia</label>
+        <input class="table__checkbox" type="checkbox" name="autonomia" id="autonomia" [(ngModel)]="autonomia">
+      </th>
+      <th>
+        <label class="table__label" for="cantidadPuertas">cantidadPuertas</label>
+        <input class="table__checkbox" type="checkbox" name="cantidadPuertas" id="cantidadPuertas"
+          [(ngModel)]="cantidadPuertas">
+      </th>
+      <th>
+        <label class="table__label" for="cantidadRuedas">cantidadRuedas</label>
+        <input class="table__checkbox" type="checkbox" name="cantidadRuedas" id="cantidadRuedas"
+          [(ngModel)]="cantidadRuedas">
+      </th>
+    </tr>
+    <tr>
+      <th class="table__th" (click)="ordenar('id')">id</th>
+      <th class="table__th" (click)="ordenar('modelo')">modelo</th>
+      <th class="table__th" (click)="ordenar('anoFabricacion')">añoFabricación</th>
+      <th class="table__th" (click)="ordenar('velocidadMaxima')">velocidadMaxima</th>
+      <th class="table__th" (click)="ordenar('alturaMaxima')">alturaMaxima</th>
+      <th class="table__th" (click)="ordenar('autonomia')">autonomia</th>
+      <th class="table__th" (click)="ordenar('cantidadPuertas')">cantidadPuertas</th>
+      <th class="table__th" (click)="ordenar('cantidadRuedas')">cantidadRuedas</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="this.vehiculos">
+    <tr *ngFor="let vehiculo of this.vehiculos" (dblclick)="onDblClick(vehiculo);">
+
+      <ng-container *ngIf="mostrar(vehiculo)">
+
+        <td [class.hidden]="!id">{{vehiculo?.id}}</td>
+        <td [class.hidden]="!modelo">{{vehiculo?.modelo}}</td>
+        <td [class.hidden]="!anoFabricacion">{{vehiculo?.anoFabricacion}}</td>
+        <td [class.hidden]="!velocidadMaxima">{{vehiculo?.velocidadMaxima}}</td>
+
+        <td *ngIf="vehiculo?.alturaMaxima; else elseAlturaMaxima" [class.hidden]="!alturaMaxima">
+          {{vehiculo?.alturaMaxima}}</td>
+        <ng-template #elseAlturaMaxima>
+          <td [class.hidden]="!alturaMaxima">N/A</td>
+        </ng-template>
+
+        <td *ngIf="vehiculo?.autonomia; else elseAutonomia" [class.hidden]="!autonomia">{{vehiculo?.autonomia}}</td>
+        <ng-template #elseAutonomia>
+          <td [class.hidden]="!autonomia">N/A</td>
+        </ng-template>
+
+        <td *ngIf="vehiculo?.cantidadPuertas; else elseCantidadPuertas" [class.hidden]="!cantidadPuertas">
+          {{vehiculo?.cantidadPuertas}}</td>
+        <ng-template #elseCantidadPuertas>
+          <td [class.hidden]="!cantidadPuertas">N/A</td>
+        </ng-template>
+
+        <td *ngIf="vehiculo?.cantidadRuedas; else elseCantidadRuedas" [class.hidden]="!cantidadRuedas">
+          {{vehiculo?.cantidadRuedas}}</td>
+        <ng-template #elseCantidadRuedas>
+          <td [class.hidden]="!cantidadRuedas">N/A</td>
+        </ng-template>
+
+      </ng-container>
+
+    </tr>
+  </tbody>
+</table>

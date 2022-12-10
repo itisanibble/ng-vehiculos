@@ -1,0 +1,31 @@
+th,
+td {
+  text-align: center;
+}
+
+tr:hover td {
+  background-color: rgb(8, 82, 193);
+  color: white !important; /*por culpa de bs5*/
+  cursor: pointer;
+}
+
+.table {
+  &__th {
+    text-transform: capitalize;
+    cursor: pointer;
+  }
+  &__label {
+    display: block;
+    text-transform: capitalize;
+    cursor: pointer;
+  }
+  &__checkbox {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}

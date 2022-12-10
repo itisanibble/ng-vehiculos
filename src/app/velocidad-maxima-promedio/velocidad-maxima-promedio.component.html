@@ -1,0 +1,6 @@
+<div class="promedio">
+  <label class="promedio__label">Calcular velocidad Maxima promedio</label>
+  <input type="number" id="velocidad-maxima-promedio" readonly [class.no-display]="promedioObj.valor == 0"
+    [value]="promedioObj.valor">
+  <button class="btn btn-primary" (click)="onClick()">Calcular Velocidad Maxima Promedio</button>
+</div>
